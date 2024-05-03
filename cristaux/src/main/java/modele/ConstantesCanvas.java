@@ -12,6 +12,7 @@ public interface ConstantesCanvas {
     final Paint COULEUR_APPRENTI = Paint.valueOf("black");
     final Paint COULEUR_SELECT = Paint.valueOf("lightgrey");
     final Paint COULEUR_BLANC = Paint.valueOf("whitesmoke");
+    final Paint[] COULEURS_TEMPLES = {Paint.valueOf("aliceblue"),Paint.valueOf("red"),Paint.valueOf("green"),Paint.valueOf("pink"),Paint.valueOf("yellow"),Paint.valueOf("purple"),Paint.valueOf("brown"),Paint.valueOf("orange"),Paint.valueOf("grey")};
 
 
 }
