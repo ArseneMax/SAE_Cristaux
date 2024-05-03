@@ -1,6 +1,6 @@
 package vue;
 
-import com.example.tp_sae.modele.Position;
+import modele.Position;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class VBoxRoot extends VBox  implements com.example.tp_sae.modele.ConstantesCanvas {
+public class VBoxRoot extends VBox  implements modele.ConstantesCanvas {
     public Label labelNbPas;
     public Canvas canvasCarte;
     public  GraphicsContext graphicsContext2D;
