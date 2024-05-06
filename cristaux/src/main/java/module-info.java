@@ -6,4 +6,6 @@ module com.example.cristaux {
 
     opens com.example.cristaux to javafx.fxml;
     exports com.example.cristaux;
+    exports vue;
+    exports modele;
 }
