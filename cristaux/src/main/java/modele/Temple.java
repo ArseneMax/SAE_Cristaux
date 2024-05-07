@@ -1,13 +1,25 @@
 package modele;
 
-import javafx.scene.paint.Paint;
-
 public class Temple implements ConstantesCanvas{
     private Position position;
-    private Paint couleur;
+    private int couleur;
+    private int crystal;
 
-    public Temple(Position pos, int idCouleur){
+    public Temple(Position pos, int idCouleur, int parCrystal){
         position = pos;
-        couleur = COULEURS_TEMPLES[idCouleur];
+        couleur = idCouleur;
+        crystal=parCrystal;
+    }
+    public String toString(){return "Temple : ("+ (position.getAbscisse() - LARGEUR_CANVAS/(2*CARRE))+","+ (position.getOrdonnee() - HAUTEUR_CANVAS/(2*CARRE))+") "+ couleur+ " "+crystal;}
+    public int getCouleur(){
+        return couleur;
+    }
+
+    public int getCrystal() {
+        return crystal;
+    }
+
+    public Position getPosition(){
+        return position;
     }
 }
