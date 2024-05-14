@@ -6,8 +6,8 @@ public interface ConstantesCanvas {
     final int LARGEUR_CANVAS = 750 ;
     final int HAUTEUR_CANVAS = LARGEUR_CANVAS;
     final int CARRE = LARGEUR_CANVAS/30 ;
-    final int HAUTEUR_OVALE = CARRE/2;
-    final int LARGEUR_OVALE = CARRE/2;
+    final int HAUTEUR_OVALE = CARRE*2/3;
+    final int LARGEUR_OVALE = CARRE*2/3;
     final Paint COULEUR_GRILLE = Paint.valueOf("black");
     final Paint COULEUR_APPRENTI = Paint.valueOf("purple");
     final Paint COULEUR_SELECT = Paint.valueOf("lightgrey");

@@ -16,4 +16,8 @@ public class Apprenti {
         temples = parTemple;
         VBoxCanvas.placetemple(temples);
     }
+
+    public Collection<Temple> getTemples(){
+        return temples;
+    }
 }

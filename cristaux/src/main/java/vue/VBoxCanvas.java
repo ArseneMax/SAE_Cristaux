@@ -83,14 +83,14 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
         }
 
         graphicsContext2D.setFill(COULEUR_APPRENTI);
-        graphicsContext2D.fillOval(positionApprenti.getAbscisse()*CARRE + CARRE/4,positionApprenti.getOrdonnee()*CARRE+CARRE/4,LARGEUR_OVALE,HAUTEUR_OVALE);
+        graphicsContext2D.fillOval(positionApprenti.getAbscisse()*CARRE + CARRE/5,positionApprenti.getOrdonnee()*CARRE+CARRE/5,LARGEUR_OVALE,HAUTEUR_OVALE);
 
         canvasCarte.setOnMouseClicked((event->{
             int abscisse =(int) event.getX() /CARRE;
             int ordonnee = (int) event.getY() / CARRE;
             Position positionCliquee = new Position(abscisse,ordonnee);
-            graphicsContext2D.setFill(COULEUR_SELECT);
-            graphicsContext2D.fillRect(positionCliquee.getAbscisse()*CARRE+2,positionCliquee.getOrdonnee()*CARRE+2, CARRE-5,CARRE-5);
+            //graphicsContext2D.setFill(COULEUR_SELECT);
+            //graphicsContext2D.fillRect(positionCliquee.getAbscisse()*CARRE+2,positionCliquee.getOrdonnee()*CARRE+2, CARRE-5,CARRE-5);
             this.deplacementAvecTimer(positionApprenti,positionCliquee);
             System.out.println(positionCliquee);
 
@@ -123,6 +123,11 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
                 graphicsContext2D.setFill(COULEUR_BLANC);
                 graphicsContext2D.fillRect(positionApprenti.getAbscisse()*CARRE+2,positionApprenti.getOrdonnee()*CARRE+2, CARRE-5,CARRE-5);
 
+                //Si apprenti sur un temple
+                Temple temple = surTemple(positionCourante);
+                if (temple!=null)
+                    placeUnTemple(temple);
+
                 //Déplacer la position de l'apprenti
                 if (positionCourante.getAbscisse()!= positionCible.getAbscisse()){
                     positionCourante.setAbscisse(positionCourante.getAbscisse()- positionCourante.compareTo(positionCible));
@@ -133,9 +138,9 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
 
 
                 //Dessiner apprenti
-                graphicsContext2D.fillRect(positionApprenti.getAbscisse()*CARRE+2,positionApprenti.getOrdonnee()*CARRE+2, CARRE-5,CARRE-5);
+                //graphicsContext2D.fillRect(positionApprenti.getAbscisse()*CARRE+2,positionApprenti.getOrdonnee()*CARRE+2, CARRE-5,CARRE-5);
                 graphicsContext2D.setFill(COULEUR_APPRENTI);
-                graphicsContext2D.fillOval(positionApprenti.getAbscisse()*CARRE + CARRE/4,positionApprenti.getOrdonnee()*CARRE+CARRE/4,LARGEUR_OVALE,HAUTEUR_OVALE);
+                graphicsContext2D.fillOval(positionApprenti.getAbscisse()*CARRE + CARRE/5,positionApprenti.getOrdonnee()*CARRE+CARRE/5,LARGEUR_OVALE,HAUTEUR_OVALE);
 
 
                 //Ajout pas
@@ -166,6 +171,8 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
                 //Effacer apprenti
                 graphicsContext2D.setFill(COULEUR_BLANC);
                 graphicsContext2D.fillRect(positionApprenti.getAbscisse()*CARRE+2,positionApprenti.getOrdonnee()*CARRE+2, CARRE-5,CARRE-5);
+
+
 
                 //Déplacer la position de l'apprenti
                 if (positionCourante.getAbscisse()!= positionCible.getAbscisse()){
@@ -256,6 +263,24 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
             graphicsContext2D.fillOval(temple.getPosition().getAbscisse()*CARRE +10,temple.getPosition().getOrdonnee()*CARRE+10,7,7);
 
         }
+    }
+
+    public static void placeUnTemple(Temple temple){
+        graphicsContext2D.setFill(COULEURS_TEMPLES [temple.getCouleur()]);
+        graphicsContext2D.fillRect(temple.getPosition().getAbscisse()*CARRE +2 , temple.getPosition().getOrdonnee()*CARRE+2, CARRE-4, CARRE-4);
+        graphicsContext2D.setFill(Paint.valueOf("darkgrey"));
+        graphicsContext2D.fillRect(temple.getPosition().getAbscisse()*CARRE +7 , temple.getPosition().getOrdonnee()*CARRE+7, CARRE/2, CARRE/2);
+        graphicsContext2D.setFill(COULEURS_TEMPLES[temple.getCrystal()]);
+        graphicsContext2D.fillOval(temple.getPosition().getAbscisse()*CARRE +10,temple.getPosition().getOrdonnee()*CARRE+10,7,7);
+    }
+
+    public static Temple surTemple(Position pos){
+        for (Temple temple : VBoxRoot.getApprenti().getTemples()){
+            System.out.println(temple.getPosition()+" "+pos);
+            if (temple.getPosition().compareTo(pos)==0)
+                return temple;
+        }
+        return null;
     }
 
 }
