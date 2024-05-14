@@ -7,6 +7,7 @@ import java.util.Collection;
 public class Apprenti {
     private Position position;
     private Collection<Temple> temples;
+    private int cristal =0;
 
     public Apprenti(){
         position = new Position(0,0);
@@ -19,5 +20,17 @@ public class Apprenti {
 
     public Collection<Temple> getTemples(){
         return temples;
+    }
+
+    public int getCristal() {
+        return cristal;
+    }
+
+    public void recupCristal(Temple temple){
+        int ancienCristal = cristal;
+        cristal= temple.getCristal();
+        temple.setCristal(ancienCristal);
+
+
     }
 }
