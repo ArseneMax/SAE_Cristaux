@@ -2,6 +2,7 @@ package vue;
 
 import controleur.Controleur;
 import javafx.geometry.Insets;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -25,7 +26,8 @@ public class VBoxRoot extends VBox implements ConstantesCanvas {
         VBox.setMargin(menuBar,new Insets(9));
 
         Menu menuScenarios = new Menu(INTITULE_MENU_SCENARIO);
-        menuBar.getMenus().add(menuScenarios);
+        Menu menuTri = new Menu(INTITULE_MENU_TRI);
+        menuBar.getMenus().addAll(menuScenarios, menuTri);
 
         File[] scenarios = new File("src/main/java/Scenario").listFiles();
         for (int i = 0 ; i<scenarios.length ; i++){
@@ -35,6 +37,14 @@ public class VBoxRoot extends VBox implements ConstantesCanvas {
             menuScenarios.getItems().add(menuItem);
         }
 
+        for (String tri : INTITULES_TRI ){
+            MenuItem itemTri = new MenuItem(tri);
+            itemTri.setUserData(tri);
+            itemTri.setOnAction(controleur);
+            menuTri.getItems().add(itemTri);
+        }
+
+
         vueCanvas = new VBoxCanvas();
         this.getChildren().add(vueCanvas);
     }
@@ -43,5 +53,5 @@ public class VBoxRoot extends VBox implements ConstantesCanvas {
         return apprenti;
     }
 
-
+    public static VBoxCanvas getVueCanvas() {return vueCanvas;}
 }

@@ -8,6 +8,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import modele.Apprenti;
@@ -21,6 +22,7 @@ import java.util.TimerTask;
 
 public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
     public Label labelNbPas;
+    public Label nomTri;
     public Canvas canvasCarte;
     public  static GraphicsContext graphicsContext2D;
     public static Position positionApprenti = new Position(LARGEUR_CANVAS/CARRE/2,HAUTEUR_CANVAS/CARRE/2) ;
@@ -28,6 +30,7 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
 
     public VBoxCanvas(){
         labelNbPas = new Label (">Nombre de pas : 0");
+        nomTri  =new Label("");
         canvasCarte = new Canvas();
         canvasCarte.setWidth(LARGEUR_CANVAS);
         canvasCarte.setHeight(HAUTEUR_CANVAS);
@@ -41,9 +44,12 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
                 graphicsContext2D.strokeRect(i,j,CARRE,CARRE);
             }
         }
-
-        this.getChildren().add(labelNbPas);
-        VBox.setMargin(labelNbPas,new Insets(30));
+        HBox boxLabel = new HBox();
+        boxLabel.getChildren().addAll(labelNbPas,nomTri);
+        HBox.setMargin(labelNbPas,new Insets(10));
+        HBox.setMargin(nomTri,new Insets(10));
+        this.getChildren().add(boxLabel);
+        VBox.setMargin(boxLabel,new Insets(30));
         this.getChildren().add(canvasCarte);
         VBox.setMargin(canvasCarte, new Insets(10));
 
