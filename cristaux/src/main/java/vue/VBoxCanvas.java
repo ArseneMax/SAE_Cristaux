@@ -128,7 +128,8 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
                 //Si apprenti sur un temple
                 Temple temple = surTemple(positionCourante);
                 if (temple!=null) {
-                    apprenti.recupCristal(temple);
+                    if (temple.getCouleur()!=temple.getCristal())
+                        apprenti.recupCristal(temple);
                     placeUnTemple(temple);
                 }
 
