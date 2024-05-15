@@ -62,7 +62,7 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
         VBox.setMargin(bouton,new Insets(30));
 
 
-        int numCol =-14;
+        int numCol =-15;
         graphicsContext2D.setFill(COULEUR_GRILLE);
         for (int i=CARRE;i< LARGEUR_CANVAS;i+=CARRE){
             if (numCol>-10)
@@ -73,7 +73,7 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
             numCol++;
         }
 
-        int numLigne =-14;
+        int numLigne =-15;
         graphicsContext2D.setFill(COULEUR_GRILLE);
         for (int i=CARRE;i< HAUTEUR_CANVAS;i+=CARRE){
             if (numLigne>-10)
@@ -235,7 +235,7 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
 
         }
 
-        int numCol =-14;
+        int numCol =-15;
         graphicsContext2D.setFill(COULEUR_GRILLE);
         for (int i=CARRE;i< LARGEUR_CANVAS;i+=CARRE){
             if (numCol>-10)
@@ -246,7 +246,7 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
             numCol++;
         }
 
-        int numLigne =-14;
+        int numLigne =-15;
         graphicsContext2D.setFill(COULEUR_GRILLE);
         for (int i=CARRE;i< HAUTEUR_CANVAS;i+=CARRE){
             if (numLigne>-10)

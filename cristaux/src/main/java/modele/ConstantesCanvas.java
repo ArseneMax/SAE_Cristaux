@@ -3,9 +3,9 @@ package modele;
 import javafx.scene.paint.Paint;
 
 public interface ConstantesCanvas {
-    final int LARGEUR_CANVAS = 775 ;
+    final int LARGEUR_CANVAS = 800 ;
     final int HAUTEUR_CANVAS = LARGEUR_CANVAS;
-    final int CARRE = LARGEUR_CANVAS/31 ;
+    final int CARRE = LARGEUR_CANVAS/32 ;
     final int HAUTEUR_OVALE = CARRE*2/3;
     final int LARGEUR_OVALE = CARRE*2/3;
     final Paint COULEUR_GRILLE = Paint.valueOf("black");
