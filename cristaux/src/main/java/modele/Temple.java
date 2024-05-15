@@ -26,4 +26,10 @@ public class Temple implements ConstantesCanvas{
     public Position getPosition(){
         return position;
     }
+
+    public boolean bonCristal(){
+        if (cristal == couleur)
+            return true;
+        return false;
+    }
 }

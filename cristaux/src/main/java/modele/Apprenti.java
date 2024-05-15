@@ -30,7 +30,12 @@ public class Apprenti {
         int ancienCristal = cristal;
         cristal= temple.getCristal();
         temple.setCristal(ancienCristal);
-
-
+    }
+    public boolean fini(){
+        for (Temple temple: temples){
+            if(!temple.bonCristal())
+                return false;
+        }
+        return true;
     }
 }
