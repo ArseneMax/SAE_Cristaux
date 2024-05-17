@@ -1,6 +1,7 @@
 package modele;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Tri {
     public static int[] triSelection(int[] liste){
@@ -11,9 +12,12 @@ public class Tri {
                     min[0]=liste[j];
                     min[1]=j;
                 }
-
-
             }
+            liste[min[1]]=liste[i];
+            liste[i]=min[0];
         }
+        return liste;
     }
+
+
 }
