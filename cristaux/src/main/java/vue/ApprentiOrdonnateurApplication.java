@@ -14,6 +14,7 @@ public class ApprentiOrdonnateurApplication extends Application {
         stage.centerOnScreen();
         stage.show();
         stage.setScene(scene);
+
     }
 
     public static void main(String[] args) {
