@@ -18,6 +18,9 @@ public class Tri {
         }
         return liste;
     }
+    public static int[] triBulle(int[] liste) {
+        return liste;
+    }
 
 
 }
