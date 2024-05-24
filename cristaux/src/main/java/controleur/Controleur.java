@@ -5,17 +5,14 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
-import modele.Apprenti;
-import modele.LectureScenario;
-import modele.Temple;
-import modele.Tri;
+import modele.*;
 import vue.VBoxCanvas;
 import vue.VBoxRoot;
 
 import java.io.File;
 import java.util.Collection;
 
-public class Controleur implements EventHandler {
+public class Controleur implements EventHandler, ConstantesCanvas {
 
     @Override
     public void handle(Event event) {
@@ -47,8 +44,14 @@ public class Controleur implements EventHandler {
                 }
             }
             if (bouton.getUserData()=="Tri"){
-                vue.deplacementAvecTimerListe(VBoxCanvas.getPositionApprenti(), Tri.triSelection());
+                for(int i =0; i<3;i++){
+                    if(vue.nomTri.getText()==INTITULES_TRI[i]){
+                        vue.deplacementAvecTimerListe(VBoxCanvas.getPositionApprenti(),INTITULES_METHODE_TRI[i]);
+                    }
+                }
+
             }
+
 
         }
 

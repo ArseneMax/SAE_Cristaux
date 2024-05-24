@@ -2,6 +2,10 @@ package modele;
 
 import javafx.scene.paint.Paint;
 
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Collection;
+
 public interface ConstantesCanvas {
     final int LARGEUR_CANVAS = 800 ;
     final int HAUTEUR_CANVAS = LARGEUR_CANVAS;
@@ -16,6 +20,7 @@ public interface ConstantesCanvas {
     final String INTITULE_MENU_SCENARIO = "Menu scenario";
     final String INTITULE_MENU_TRI= "Menu tri";
     final String[] INTITULES_TRI = new String[]{"Tri à insertion","Tri à bulle","Tri à selection"};
+    final ArrayList<Position>[] INTITULES_METHODE_TRI = new ArrayList[]{Tri.triInsertion(),Tri.triBulle(),Tri.triSelection()};
 
 }
 

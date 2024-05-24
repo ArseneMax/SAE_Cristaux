@@ -9,10 +9,13 @@ import java.util.Collection;
 public class Tri {
 
 
+    public static ArrayList<Position> triInsertion() {
 
-    public static int[] triBulle(int[] liste) {
+        return new ArrayList<Position>();
+    }
+    public static ArrayList<Position> triBulle() {
 
-        return liste;
+        return new ArrayList<Position>();
     }
 
     public static ArrayList<Position> triSelection(){
