@@ -6,12 +6,10 @@ import java.util.Collection;
 
 public class Apprenti {
     private Position position;
-    private Collection<Temple> temples;
+    private static Collection<Temple> temples;
     private int cristal =0;
 
-    public Apprenti(){
-        position = new Position(0,0);
-    }
+    public Apprenti(){ position = new Position(0,0); }
 
     public void setTemples(Collection<Temple> parTemple ) {
         temples = parTemple;
@@ -37,5 +35,12 @@ public class Apprenti {
                 return false;
         }
         return true;
+    }
+    public static Temple getTemple(int couleur){
+        for(Temple temple:temples){
+            if (temple.getCouleur()==couleur)
+                return temple;
+        }
+        return null;
     }
 }

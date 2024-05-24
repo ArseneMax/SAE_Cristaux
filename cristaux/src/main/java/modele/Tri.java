@@ -1,26 +1,37 @@
 package modele;
 
+import vue.VBoxRoot;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 
 public class Tri {
-    public static int[] triSelection(int[] liste){
-        for (int i = 0; i< liste.length;i++){
-            int[] min = {liste[i],i};
-            for (int j = i;j< liste.length;j++){
-                if ( liste[j]<min[0]){
-                    min[0]=liste[j];
-                    min[1]=j;
-                }
-            }
-            liste[min[1]]=liste[i];
-            liste[i]=min[0];
-        }
-        return liste;
-    }
+
+
+
     public static int[] triBulle(int[] liste) {
+
         return liste;
     }
 
+    public static ArrayList<Position> triSelection(){
+        Collection<Temple> listeTemple = VBoxRoot.getApprenti().getTemples();
+        ArrayList<Position> listePosition = new ArrayList<>();
+        for (int i =0; i<listeTemple.size();i++){
+            Temple templeIndex = Apprenti.getTemple(i);
+            for (Temple temple: listeTemple){
+                if (temple.getCristal()==i){
+                    Temple templeCristal  = temple;
+                    listePosition.add(templeIndex.getPosition());
+                    listePosition.add(templeCristal.getPosition());
+                    listePosition.add(templeIndex.getPosition());
+                }
+            }
+
+        }
+
+        return listePosition;
+    }
 
 }
