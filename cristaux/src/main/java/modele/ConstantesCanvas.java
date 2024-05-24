@@ -20,7 +20,6 @@ public interface ConstantesCanvas {
     final String INTITULE_MENU_SCENARIO = "Menu scenario";
     final String INTITULE_MENU_TRI= "Menu tri";
     final String[] INTITULES_TRI = new String[]{"Tri à insertion","Tri à bulle","Tri à selection"};
-    final ArrayList<Position>[] INTITULES_METHODE_TRI = new ArrayList[]{Tri.triInsertion(),Tri.triBulle(),Tri.triSelection()};
 
 }
 

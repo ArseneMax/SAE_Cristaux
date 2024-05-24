@@ -41,7 +41,7 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
         controleur = VBoxRoot.getControleur();
         Button bouton = new Button("Lancer le tri");
         bouton.setUserData("Tri");
-        Button recup = new Button("Récupérer le crystal");
+        Button recup = new Button("Récupérer le cristal");
         recup.setUserData("recup");
 
 
@@ -189,8 +189,6 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
             public void run() {
                 //Prochaine position
                 Position positionCible = positionsCibles.get(indice[0]);
-                graphicsContext2D.setFill(COULEUR_SELECT);
-                graphicsContext2D.fillRect(positionCible.getAbscisse()*CARRE+2,positionCible.getOrdonnee()*CARRE+2, CARRE-5,CARRE-5);
 
                 //Effacer apprenti
                 graphicsContext2D.setFill(COULEUR_BLANC);
@@ -213,7 +211,6 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
 
 
                 //Dessiner apprenti
-                graphicsContext2D.fillRect(positionApprenti.getAbscisse()*CARRE+2,positionApprenti.getOrdonnee()*CARRE+2, CARRE-5,CARRE-5);
                 graphicsContext2D.setFill(COULEUR_APPRENTI);
                 graphicsContext2D.fillOval(positionApprenti.getAbscisse()*CARRE + CARRE/4,positionApprenti.getOrdonnee()*CARRE+CARRE/4,LARGEUR_OVALE,HAUTEUR_OVALE);
 
@@ -225,6 +222,7 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
 
                 //Si cible atteinte
                 if (positionCourante.compareTo(positionCible)==0){
+                    apprenti.recupCristal(surTemple(positionCourante));
                     indice[0]++;
 
                 }

@@ -39,16 +39,24 @@ public class Controleur implements EventHandler, ConstantesCanvas {
 
             if( bouton.getUserData()=="recup"){
                 Temple temple = vue.surTemple(VBoxCanvas.getPositionApprenti());
+
                 if (temple!=null) {
                     apprenti.recupCristal(temple);
                 }
             }
             if (bouton.getUserData()=="Tri"){
-                for(int i =0; i<3;i++){
-                    if(vue.nomTri.getText()==INTITULES_TRI[i]){
-                        vue.deplacementAvecTimerListe(VBoxCanvas.getPositionApprenti(),INTITULES_METHODE_TRI[i]);
-                    }
-                }
+
+                 if(vue.nomTri.getText()==INTITULES_TRI[0])
+                     vue.deplacementAvecTimerListe(VBoxCanvas.getPositionApprenti(), Tri.triInsertion());
+                 if (vue.nomTri.getText()==INTITULES_TRI[1])
+                     vue.deplacementAvecTimerListe(VBoxCanvas.getPositionApprenti(),Tri.triBulle());
+                 if (vue.nomTri.getText()==INTITULES_TRI[2])
+                    vue.deplacementAvecTimerListe(VBoxCanvas.getPositionApprenti(),Tri.triSelection());
+                 else
+                     vue.nomTri.setText("Veuillez choisir un tri");
+
+
+
 
             }
 

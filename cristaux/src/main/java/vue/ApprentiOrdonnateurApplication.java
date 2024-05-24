@@ -9,7 +9,7 @@ public class ApprentiOrdonnateurApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         VBoxRoot root = new  VBoxRoot();
-        Scene scene = new Scene(root, 480, 480);
+        Scene scene = new Scene(root, 1000, 1000);
         stage.setTitle("Hello JavaFX");
         stage.centerOnScreen();
         stage.show();
