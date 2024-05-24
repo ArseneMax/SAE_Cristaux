@@ -179,7 +179,7 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
         timer.scheduleAtFixedRate(timerTask,1000,200);
     }
 
-    private void deplacementAvecTimerListe(Position positionCourante, ArrayList<Position> positionsCibles){
+    public void deplacementAvecTimerListe(Position positionCourante, ArrayList<Position> positionsCibles){
         int [] indice = {0};
         Timer timer = new Timer();
         Apprenti apprenti = VBoxRoot.getApprenti();

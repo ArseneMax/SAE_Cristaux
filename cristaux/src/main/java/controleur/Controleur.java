@@ -8,6 +8,7 @@ import javafx.scene.control.MenuItem;
 import modele.Apprenti;
 import modele.LectureScenario;
 import modele.Temple;
+import modele.Tri;
 import vue.VBoxCanvas;
 import vue.VBoxRoot;
 
@@ -36,17 +37,21 @@ public class Controleur implements EventHandler {
         }
         if (event.getSource() instanceof Button){
             Button bouton = (Button) event.getSource();
+            Apprenti apprenti = VBoxRoot.getApprenti();
+            VBoxCanvas vue = VBoxRoot.getVueCanvas();
+
             if( bouton.getUserData()=="recup"){
-                Apprenti apprenti = VBoxRoot.getApprenti();
-                VBoxCanvas vue = VBoxRoot.getVueCanvas();
                 Temple temple = vue.surTemple(VBoxCanvas.getPositionApprenti());
                 if (temple!=null) {
                     apprenti.recupCristal(temple);
                 }
             }
+            if (bouton.getUserData()=="Tri"){
+                vue.deplacementAvecTimerListe(VBoxCanvas.getPositionApprenti(), Tri.triSelection());
+            }
 
         }
 
-        //if (userData instanceof Button)
+
     }
 }
