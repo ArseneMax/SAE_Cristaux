@@ -54,4 +54,5 @@ public class VBoxRoot extends VBox implements ConstantesCanvas {
     }
 
     public static VBoxCanvas getVueCanvas() {return vueCanvas;}
+    public static Controleur getControleur(){ return controleur;}
 }

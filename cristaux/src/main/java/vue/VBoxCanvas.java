@@ -1,5 +1,6 @@
 package vue;
 
+import controleur.Controleur;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -26,6 +27,7 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
     public Canvas canvasCarte;
     public  static GraphicsContext graphicsContext2D;
     public static Position positionApprenti = new Position(LARGEUR_CANVAS/CARRE/2,HAUTEUR_CANVAS/CARRE/2) ;
+    public Controleur controleur ;
 
 
     public VBoxCanvas(){
@@ -36,7 +38,11 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
         canvasCarte.setHeight(HAUTEUR_CANVAS);
         graphicsContext2D = canvasCarte.getGraphicsContext2D();
         graphicsContext2D.setStroke(COULEUR_GRILLE);
-        Button bouton = new Button("pas au hasard");
+        controleur = VBoxRoot.getControleur();
+        Button bouton = new Button("Lancer le tri");
+        bouton.setUserData("Tri");
+        Button recup = new Button("Récupérer le crystal");
+        recup.setUserData("recup");
 
 
         for ( int i=0 ; i<LARGEUR_CANVAS; i+= CARRE){
@@ -54,17 +60,15 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
         VBox.setMargin(canvasCarte, new Insets(10));
 
 
-        bouton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                ArrayList<Position> liste = new ArrayList<Position>();
-                liste.add(new Position(5,9));
-                liste.add(new Position(6,4));
-                liste.add(new Position(1,1));
-                deplacementAvecTimerListe(positionApprenti,liste);
-            }
-        });
-        this.getChildren().add(bouton);
+        bouton.setOnAction(controleur);
+
+        recup.setOnAction(controleur);
+
+        HBox hbox = new HBox();
+        hbox.getChildren().addAll(recup,bouton);
+        HBox.setMargin(recup,new Insets(10));
+        HBox.setMargin(bouton,new Insets(10));
+        this.getChildren().add(hbox);
         VBox.setMargin(bouton,new Insets(30));
 
 
@@ -93,13 +97,17 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
         graphicsContext2D.fillOval(positionApprenti.getAbscisse()*CARRE + CARRE/5,positionApprenti.getOrdonnee()*CARRE+CARRE/5,LARGEUR_OVALE,HAUTEUR_OVALE);
 
         canvasCarte.setOnMouseClicked((event->{
-            int abscisse =(int) event.getX() /CARRE;
-            int ordonnee = (int) event.getY() / CARRE;
-            Position positionCliquee = new Position(abscisse,ordonnee);
-            //graphicsContext2D.setFill(COULEUR_SELECT);
-            //graphicsContext2D.fillRect(positionCliquee.getAbscisse()*CARRE+2,positionCliquee.getOrdonnee()*CARRE+2, CARRE-5,CARRE-5);
-            this.deplacementAvecTimer(positionApprenti,positionCliquee);
-            System.out.println(positionCliquee);
+            if(VBoxRoot.getApprenti().getTemples() != null){
+                int abscisse =(int) event.getX() /CARRE;
+                int ordonnee = (int) event.getY() / CARRE;
+                Position positionCliquee = new Position(abscisse,ordonnee);
+                //graphicsContext2D.setFill(COULEUR_SELECT);
+                //graphicsContext2D.fillRect(positionCliquee.getAbscisse()*CARRE+2,positionCliquee.getOrdonnee()*CARRE+2, CARRE-5,CARRE-5);
+                this.deplacementAvecTimer(positionApprenti,positionCliquee);
+                System.out.println(positionCliquee);
+            }
+            else
+                System.out.println("Veuillez d'abord choisir un scenario");
 
         }));
 
@@ -131,13 +139,11 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
                 graphicsContext2D.setFill(COULEUR_BLANC);
                 graphicsContext2D.fillRect(positionApprenti.getAbscisse()*CARRE+2,positionApprenti.getOrdonnee()*CARRE+2, CARRE-5,CARRE-5);
 
-                //Si apprenti sur un temple
+                //Si apprenti était sur temple
                 Temple temple = surTemple(positionCourante);
-                if (temple!=null) {
-                    if (!temple.bonCristal())//si le temple a pas le bon cristal
-                        apprenti.recupCristal(temple);
+                if (temple!=null)
                     placeUnTemple(temple);
-                }
+
 
                 //Déplacer la position de l'apprenti
                 if (positionCourante.getAbscisse()!= positionCible.getAbscisse()){
@@ -189,6 +195,11 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
                 //Effacer apprenti
                 graphicsContext2D.setFill(COULEUR_BLANC);
                 graphicsContext2D.fillRect(positionApprenti.getAbscisse()*CARRE+2,positionApprenti.getOrdonnee()*CARRE+2, CARRE-5,CARRE-5);
+
+                //Si apprenti était sur temple
+                Temple temple = surTemple(positionCourante);
+                if (temple!=null)
+                    placeUnTemple(temple);
 
 
 
@@ -302,6 +313,10 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
                 return temple;
         }
         return null;
+    }
+
+    public static Position getPositionApprenti(){
+        return positionApprenti;
     }
 
 }
