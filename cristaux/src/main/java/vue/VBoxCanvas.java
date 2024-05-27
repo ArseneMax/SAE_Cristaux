@@ -222,12 +222,14 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
 
                 //Si cible atteinte
                 if (positionCourante.compareTo(positionCible)==0){
-                    apprenti.recupCristal(surTemple(positionCourante));
+                    temple=surTemple(positionCourante);
+                    if(temple!=null)
+                        apprenti.recupCristal(temple);
                     indice[0]++;
 
                 }
                 //Si fini
-                if (indice[0]>positionsCibles.size()){
+                if (indice[0]>positionsCibles.size()-1){
                     timer.cancel();
                 }
 

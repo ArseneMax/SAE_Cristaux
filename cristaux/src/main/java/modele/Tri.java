@@ -1,10 +1,12 @@
 package modele;
 
+import vue.VBoxCanvas;
 import vue.VBoxRoot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 
 public class Tri implements ConstantesCanvas{
 
@@ -22,21 +24,34 @@ public class Tri implements ConstantesCanvas{
         Collection<Temple> listeTemple = VBoxRoot.getApprenti().getTemples();
         if (listeTemple==null)
             return null;
+        HashMap<Integer,Integer> save = new HashMap<>();
         ArrayList<Position> listePosition = new ArrayList<>();
-        for (int i =0; i<listeTemple.size();i++){
+        for (int i =1; i<listeTemple.size();i++){
             Temple templeIndex = Apprenti.getTemple(i);
+            Temple templeCristal = null;
             for (Temple temple: listeTemple){
-                if (temple.getCristal()==i){
-                    Temple templeCristal  = temple;
+                if(i==1)//On garde une save des temples de base
+                    save.put(temple.getCouleur(), temple.getCristal());
+                if (temple.getCristal()==templeIndex.getCouleur()){
+                    templeCristal = temple;
+                    //On ajoute les déplacements à effectuer
                     listePosition.add(templeIndex.getPosition());
-                    listePosition.add(templeCristal.getPosition());
+                    listePosition.add(temple.getPosition());
                     listePosition.add(templeIndex.getPosition());
+
+
                 }
+
             }
+            //On effectue les changements de cristaux
+            templeCristal.setCristal(templeIndex.getCristal());
+            templeIndex.setCristal(i);
+
 
         }
-        listePosition.add(new Position(LARGEUR_CANVAS/CARRE/2,HAUTEUR_CANVAS/CARRE/2));
         System.out.println(listePosition);
+
+        Apprenti.resetTemples(save);
 
         return listePosition;
     }

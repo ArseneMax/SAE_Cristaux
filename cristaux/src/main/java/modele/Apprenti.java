@@ -3,6 +3,7 @@ package modele;
 import vue.VBoxCanvas;
 
 import java.util.Collection;
+import java.util.HashMap;
 
 public class Apprenti {
     private Position position;
@@ -29,6 +30,7 @@ public class Apprenti {
         cristal= temple.getCristal();
         temple.setCristal(ancienCristal);
     }
+
     public boolean fini(){
         for (Temple temple: temples){
             if(!temple.bonCristal())
@@ -42,5 +44,11 @@ public class Apprenti {
                 return temple;
         }
         return null;
+    }
+
+    public static void resetTemples(HashMap save){
+        for (Temple temple : temples){
+            temple.setCristal((int) save.get(temple.getCouleur()));
+        }
     }
 }
