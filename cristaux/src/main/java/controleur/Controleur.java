@@ -10,6 +10,7 @@ import vue.VBoxCanvas;
 import vue.VBoxRoot;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Controleur implements EventHandler, ConstantesCanvas {
@@ -45,16 +46,26 @@ public class Controleur implements EventHandler, ConstantesCanvas {
                 }
             }
             if (bouton.getUserData()=="Tri"){
+                ArrayList<Position> positionsTri = null;
+                 if(vue.nomTri.getText()==INTITULES_TRI[0]){
+                     positionsTri = Tri.triInsertion();
+                 }
 
-                 if(vue.nomTri.getText()==INTITULES_TRI[0])
-                     vue.deplacementAvecTimerListe(VBoxCanvas.getPositionApprenti(), Tri.triInsertion());
-                 if (vue.nomTri.getText()==INTITULES_TRI[1])
-                     vue.deplacementAvecTimerListe(VBoxCanvas.getPositionApprenti(),Tri.triBulle());
-                 if (vue.nomTri.getText()==INTITULES_TRI[2])
-                    vue.deplacementAvecTimerListe(VBoxCanvas.getPositionApprenti(),Tri.triSelection());
+                 else if (vue.nomTri.getText()==INTITULES_TRI[1]){
+                     positionsTri = Tri.triBulle();
+
+                 }
+                 else if (vue.nomTri.getText()==INTITULES_TRI[2]){
+                    positionsTri = Tri.triSelection();
+
+                }
+
                  else
                      vue.nomTri.setText("Veuillez choisir un tri");
-
+                 if(positionsTri.size()!=0)
+                    vue.deplacementAvecTimerListe(VBoxCanvas.getPositionApprenti(), positionsTri);
+                 else
+                     vue.nomTri.setText("Algorithme de tri en cours de maintennace");
 
 
 

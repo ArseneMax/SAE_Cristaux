@@ -22,7 +22,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
-    public Label labelNbPas;
+    public static Label labelNbPas;
     public Label nomTri;
     public Canvas canvasCarte;
     public  static GraphicsContext graphicsContext2D;
@@ -236,12 +236,14 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
 
             }
         };
-        timer.scheduleAtFixedRate(timerTask,1000,200);
+        timer.scheduleAtFixedRate(timerTask,500,50);
     }
+
 
 
     public static void reinitialiser() {
         Position.setNbPas(0);
+        labelNbPas.setText("Nombre de pas : "+Position.getNbPas());
         graphicsContext2D.setFill(COULEUR_BLANC);
 
         graphicsContext2D.fillRect(0,0,LARGEUR_CANVAS,HAUTEUR_CANVAS);
