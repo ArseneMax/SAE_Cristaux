@@ -241,7 +241,7 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
 
 
     public static void reinitialiser() {
-
+        Position.setNbPas(0);
         graphicsContext2D.setFill(COULEUR_BLANC);
 
         graphicsContext2D.fillRect(0,0,LARGEUR_CANVAS,HAUTEUR_CANVAS);

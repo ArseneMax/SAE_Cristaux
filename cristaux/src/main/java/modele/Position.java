@@ -46,7 +46,9 @@ public class Position {
         return nbPas;
     }
 
-    public String toString(){return "("+getAbscisse()+","+getOrdonnee()+")";}
+    public static void setNbPas(int nombre){nbPas=nombre;}
+
+    public String toString(){return "("+(getAbscisse()-16)+","+(getOrdonnee()-16)+")";}
 
 
     public int compareTo(Position parPosition){
