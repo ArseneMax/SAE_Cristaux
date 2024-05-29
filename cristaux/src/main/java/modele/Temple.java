@@ -10,6 +10,11 @@ public class Temple implements ConstantesCanvas{
         couleur = idCouleur;
         cristal=parCristal;
     }
+    public Temple(){
+        position = new Position(0,0);
+        couleur = 0;
+        cristal = 0;
+    }
     public String toString(){return "Temple : ("+ (position.getAbscisse() - LARGEUR_CANVAS/(2*CARRE))+","+ (position.getOrdonnee() - HAUTEUR_CANVAS/(2*CARRE))+") "+ couleur+ " "+cristal;}
     public int getCouleur(){
         return couleur;

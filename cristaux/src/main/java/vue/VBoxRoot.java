@@ -26,7 +26,7 @@ public class VBoxRoot extends VBox implements ConstantesCanvas {
         VBox.setMargin(menuBar,new Insets(9));
 
         Menu menuScenarios = new Menu(INTITULE_MENU_SCENARIO);
-        Menu menuTri = new Menu(INTITULE_MENU_TRI);
+        Menu menuTri = new Menu(INTITULE_MENU_ALGORITHMES);
         menuBar.getMenus().addAll(menuScenarios, menuTri);
 
         File[] scenarios = new File("src/main/java/Scenario").listFiles();
@@ -37,7 +37,7 @@ public class VBoxRoot extends VBox implements ConstantesCanvas {
             menuScenarios.getItems().add(menuItem);
         }
 
-        for (String tri : INTITULES_TRI ){
+        for (String tri : INTITULES_ALGOS ){
             MenuItem itemTri = new MenuItem(tri);
             itemTri.setUserData(tri);
             itemTri.setOnAction(controleur);

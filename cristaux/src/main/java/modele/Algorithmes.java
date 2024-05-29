@@ -1,14 +1,12 @@
 package modele;
 
-import vue.VBoxCanvas;
 import vue.VBoxRoot;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 
-public class Tri implements ConstantesCanvas{
+public class Algorithmes implements ConstantesCanvas{
 
 
     public static ArrayList<Position> triInsertion() {

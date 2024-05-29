@@ -3,7 +3,6 @@ package controleur;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import modele.*;
 import vue.VBoxCanvas;
@@ -47,16 +46,16 @@ public class Controleur implements EventHandler, ConstantesCanvas {
             }
             if (bouton.getUserData()=="Tri"){
                 ArrayList<Position> positionsTri = null;
-                 if(vue.nomTri.getText()==INTITULES_TRI[0]){
-                     positionsTri = Tri.triInsertion();
+                 if(vue.nomTri.getText()==INTITULES_ALGOS[0]){
+                     positionsTri = Algorithmes.triInsertion();
                  }
 
-                 else if (vue.nomTri.getText()==INTITULES_TRI[1]){
-                     positionsTri = Tri.triBulle();
+                 else if (vue.nomTri.getText()==INTITULES_ALGOS[1]){
+                     positionsTri = Algorithmes.triBulle();
 
                  }
-                 else if (vue.nomTri.getText()==INTITULES_TRI[2]){
-                    positionsTri = Tri.triSelection();
+                 else if (vue.nomTri.getText()==INTITULES_ALGOS[2]){
+                    positionsTri = Algorithmes.triSelection();
 
                 }
 
