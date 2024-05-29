@@ -32,7 +32,7 @@ public class Tri implements ConstantesCanvas{
             for (Temple temple: listeTemple){
                 if(i==1)//On garde une save des temples de base
                     save.put(temple.getCouleur(), temple.getCristal());
-                if (temple.getCristal()==templeIndex.getCouleur()){
+                if (temple.getCristal()==templeIndex.getCouleur() && !templeIndex.bonCristal()){
                     templeCristal = temple;
                     //On ajoute les déplacements à effectuer
                     listePosition.add(templeIndex.getPosition());
@@ -44,8 +44,11 @@ public class Tri implements ConstantesCanvas{
 
             }
             //On effectue les changements de cristaux
-            templeCristal.setCristal(templeIndex.getCristal());
-            templeIndex.setCristal(i);
+            if (templeCristal!=null){
+                templeCristal.setCristal(templeIndex.getCristal());
+                templeIndex.setCristal(i);
+            }
+
 
 
         }
