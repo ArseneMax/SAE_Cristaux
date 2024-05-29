@@ -1,5 +1,6 @@
 package modele;
 
+import vue.VBoxCanvas;
 import vue.VBoxRoot;
 
 import java.util.ArrayList;
@@ -55,6 +56,45 @@ public class Algorithmes implements ConstantesCanvas{
         Apprenti.resetTemples(save);
 
         return listePosition;
+    }
+
+
+    public static ArrayList<Position> algoHeulerien(){
+        int distanceMin=5000;
+        int cristalTenu=0;
+        Collection<Temple> temples = VBoxRoot.getApprenti().getTemples();
+        Temple templeCible =new Temple();
+        HashMap<Integer,Integer> save = new HashMap<>();
+        ArrayList<Position> listePosition = new ArrayList<>();
+        while (!VBoxRoot.getApprenti().fini()){
+            if(cristalTenu==0){
+                for (Temple temple : temples){
+                    if(listePosition.size()==0)//On garde une save des temples de base
+                        save.put(temple.getCouleur(), temple.getCristal());
+                    Temple templeCristal = Apprenti.rechercheCristal(temple.getCouleur());
+                    int distance = Position.distance(temple.getPosition(),templeCristal.getPosition())+Position.distance(VBoxCanvas.getPositionApprenti(),templeCristal.getPosition());
+                    if (distanceMin>distance && !temple.bonCristal())
+                        templeCible = temple;
+                }
+                listePosition.add(Apprenti.rechercheCristal(templeCible.getCouleur()).getPosition());
+                listePosition.add(templeCible.getPosition());
+                Apprenti.rechercheCristal(templeCible.getCristal()).setCristal(cristalTenu);
+                cristalTenu=templeCible.getCristal();
+                templeCible.setCristal(templeCible.getCristal());
+            }
+            else {
+                templeCible=Apprenti.rechercheCristal(cristalTenu);
+                listePosition.add(templeCible.getPosition());
+                cristalTenu= templeCible.getCristal();
+                templeCible.setCristal(templeCible.getCouleur());
+            }
+        }
+        System.out.println(listePosition);
+
+        Apprenti.resetTemples(save);
+
+        return listePosition;
+
     }
 
 }

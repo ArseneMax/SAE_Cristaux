@@ -51,4 +51,17 @@ public class Apprenti {
             temple.setCristal((int) save.get(temple.getCouleur()));
         }
     }
+
+    /**
+     * Cette méthode permet de récupérer le temple sur lequel un cristal est posé
+     * @param cristal la couleur du cristal recherché
+     * @return le temple portant le cristal. null si apprenti porteur
+     */
+    public static Temple rechercheCristal(int cristal){
+        for (Temple temple: temples){
+            if (temple.getCristal()==cristal)
+                return temple;
+        }
+        return null;
+    }
 }

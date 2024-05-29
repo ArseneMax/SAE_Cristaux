@@ -58,14 +58,18 @@ public class Controleur implements EventHandler, ConstantesCanvas {
                     positionsTri = Algorithmes.triSelection();
 
                 }
+                 else if (vue.nomTri.getText()==INTITULES_ALGOS[3]){
+                     positionsTri = Algorithmes.algoHeulerien();
+
+                 }
 
                  else
-                     vue.nomTri.setText("Veuillez choisir un tri");
+                     vue.nomTri.setText("Veuillez choisir un algorithme");
                  if(positionsTri!=null)
                      if (positionsTri.size()!=0)
                         vue.deplacementAvecTimerListe(VBoxCanvas.getPositionApprenti(), positionsTri);
                     else
-                        vue.nomTri.setText("Algorithme de tri en cours de maintennace");
+                        vue.nomTri.setText("Algorithme en cours de maintennace");
 
 
 

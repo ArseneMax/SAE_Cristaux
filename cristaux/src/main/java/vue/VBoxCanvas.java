@@ -321,4 +321,6 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
         return positionApprenti;
     }
 
+
+
 }

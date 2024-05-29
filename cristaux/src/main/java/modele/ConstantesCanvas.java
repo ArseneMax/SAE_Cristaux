@@ -19,7 +19,7 @@ public interface ConstantesCanvas {
     final Paint[] COULEURS_TEMPLES = {Paint.valueOf("aliceblue"),Paint.valueOf("red"),Paint.valueOf("green"),Paint.valueOf("pink"),Paint.valueOf("yellow"),Paint.valueOf("olive"),Paint.valueOf("brown"),Paint.valueOf("orange"),Paint.valueOf("grey"),Paint.valueOf("cyan")};
     final String INTITULE_MENU_SCENARIO = "Menu scenario";
     final String INTITULE_MENU_ALGORITHMES= "Menu algorithmes";
-    final String[] INTITULES_ALGOS = new String[]{"Tri à insertion","Tri à bulle","Tri à selection"};
+    final String[] INTITULES_ALGOS = new String[]{"Tri à insertion","Tri à bulle","Tri à selection","Heuristique"};
 
 }
 

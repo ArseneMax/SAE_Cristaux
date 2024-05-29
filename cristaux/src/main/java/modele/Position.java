@@ -1,5 +1,7 @@
 package modele;
 
+import static java.lang.Math.abs;
+
 public class Position {
     private static int nbPas = 0;
     private int abscisse;
@@ -70,5 +72,8 @@ public class Position {
     public void setAbscisse(int nouveau){nbPas++;this.abscisse=nouveau;}
     public void setOrdonnee(int nouveau){nbPas++;this.ordonnee=nouveau;}
 
+    public static int distance(Position positionDepart, Position positionCible){
+        return abs(positionDepart.getAbscisse()- positionCible.getAbscisse())+abs(positionDepart.getOrdonnee()- positionCible.getOrdonnee());
+    }
 
 }
