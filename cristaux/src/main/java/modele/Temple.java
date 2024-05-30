@@ -16,6 +16,7 @@ public class Temple implements ConstantesCanvas{
         cristal = 0;
     }
     public String toString(){return "Temple : ("+ (position.getAbscisse() - LARGEUR_CANVAS/(2*CARRE))+","+ (position.getOrdonnee() - HAUTEUR_CANVAS/(2*CARRE))+") "+ couleur+ " "+cristal;}
+
     public int getCouleur(){
         return couleur;
     }
@@ -32,6 +33,10 @@ public class Temple implements ConstantesCanvas{
         return position;
     }
 
+    /**
+     * Vérifie si le temple a le bon cristal
+     * @return true si c'est le cas et sinon return false
+     */
     public boolean bonCristal(){
         if (cristal == couleur)
             return true;

@@ -12,6 +12,11 @@ public class Position {
         this.ordonnee = ordonnee;
     }
 
+    /**
+     * Déplace l'apprenti vers la position souhaitée
+     * Le déplacement se fait d'une case par une case
+     * @param parPosition
+     */
     public void deplacementUneCase(Position parPosition){
         nbPas++;
         if (this.abscisse> parPosition.abscisse){
@@ -52,7 +57,12 @@ public class Position {
 
     public String toString(){return "("+(getAbscisse()-16)+","+(getOrdonnee()-16)+")";}
 
-
+    /**
+     * Compare 2 positions
+     * @param parPosition
+     * @return un entier négatif si la position est inférieur, zéro si la position est la même
+     *         ou un entier positif si cette position est supérieure à la position spécifiée.
+     */
     public int compareTo(Position parPosition){
         if (this.abscisse < parPosition.abscisse){
             return -1;

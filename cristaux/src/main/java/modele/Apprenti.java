@@ -25,12 +25,20 @@ public class Apprenti {
         return cristal;
     }
 
+    /**
+     * Fait un échange du cristal de l'apprenti et celui du temple
+     * @param temple le temple où l'apprenti se trouve
+     */
     public void recupCristal(Temple temple){
         int ancienCristal = cristal;
         cristal= temple.getCristal();
         temple.setCristal(ancienCristal);
     }
 
+    /**
+     * Parcours la liste des temples et vérifie si ils ont le bon cristal
+     * @return true si c'est le cas sinon return false
+     */
     public boolean fini(){
         for (Temple temple: temples){
             if(!temple.bonCristal())
@@ -38,6 +46,12 @@ public class Apprenti {
         }
         return true;
     }
+
+    /**
+     *Parcours les temples pour trouver celui qui correspond a la couleur demandée
+     * @param couleur
+     * @return le temple de la couleur demandée ou null si le temple n'existe pas
+     */
     public static Temple getTemple(int couleur){
         for(Temple temple:temples){
             if (temple.getCouleur()==couleur)

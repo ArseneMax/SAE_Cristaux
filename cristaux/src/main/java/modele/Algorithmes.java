@@ -19,6 +19,10 @@ public class Algorithmes implements ConstantesCanvas{
         return new ArrayList<Position>();
     }
 
+    /**
+     * Fait un tri par séléction des temples en fonction de leur cristaux et retourne une liste de déplacement
+     * @return une liste de position indiquant les déplacements a faire pour le tri
+     */
     public static ArrayList<Position> triSelection(){
         Collection<Temple> listeTemple = VBoxRoot.getApprenti().getTemples();
         if (listeTemple==null)
