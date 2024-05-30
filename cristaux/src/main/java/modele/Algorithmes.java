@@ -78,12 +78,12 @@ public class Algorithmes implements ConstantesCanvas{
                 }
                 listePosition.add(Apprenti.rechercheCristal(templeCible.getCouleur()).getPosition());
                 listePosition.add(templeCible.getPosition());
-                Apprenti.rechercheCristal(templeCible.getCristal()).setCristal(cristalTenu);
                 cristalTenu=templeCible.getCristal();
-                templeCible.setCristal(templeCible.getCristal());
+                Apprenti.rechercheCristal(templeCible.getCristal()).setCristal(0);
+                templeCible.setCristal(templeCible.getCouleur());
             }
             else {
-                templeCible=Apprenti.rechercheCristal(cristalTenu);
+                templeCible=Apprenti.getTemple(cristalTenu);
                 listePosition.add(templeCible.getPosition());
                 cristalTenu= templeCible.getCristal();
                 templeCible.setCristal(templeCible.getCouleur());

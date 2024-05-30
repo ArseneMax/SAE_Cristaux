@@ -212,8 +212,13 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
 
                 //Dessiner apprenti
                 graphicsContext2D.setFill(COULEUR_APPRENTI);
-                graphicsContext2D.fillOval(positionApprenti.getAbscisse()*CARRE + CARRE/4,positionApprenti.getOrdonnee()*CARRE+CARRE/4,LARGEUR_OVALE,HAUTEUR_OVALE);
+                graphicsContext2D.fillOval(positionApprenti.getAbscisse()*CARRE + CARRE/4,positionApprenti.getOrdonnee()*CARRE+CARRE/4,LARGEUR_OVALE,HAUTEUR_OVALE);//Dessiner le cristal s'il en a un
 
+                //Dessiner le cristal s'il en a un
+                if (apprenti.getCristal()!=0){
+                    graphicsContext2D.setFill(COULEURS_TEMPLES[apprenti.getCristal()]);
+                    graphicsContext2D.fillOval(positionApprenti.getAbscisse() * CARRE + 10, positionApprenti.getOrdonnee() * CARRE + 10, 7, 7);
+                }
 
                 //Ajout pas
                 Platform.runLater(()->{
