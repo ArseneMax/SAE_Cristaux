@@ -37,14 +37,21 @@ public class Controleur implements EventHandler, ConstantesCanvas {
             Apprenti apprenti = VBoxRoot.getApprenti();
             VBoxCanvas vue = VBoxRoot.getVueCanvas();
 
-            if( bouton.getUserData()=="recup"){
+            if( bouton.getUserData()=="recup" && apprenti.getTemples()!=null){
                 Temple temple = vue.surTemple(VBoxCanvas.getPositionApprenti());
 
                 if (temple!=null) {
                     apprenti.recupCristal(temple);
                 }
             }
-            if (bouton.getUserData()=="Tri"){
+            if(bouton.getUserData()=="restart" && apprenti.getTemples()!=null){
+                VBoxCanvas.reinitialiser();
+                Apprenti.resetTemples(LectureScenario.getTemplesDuScenario());
+                apprenti.setTemples(apprenti.getTemples());
+            }
+
+
+            if (bouton.getUserData()=="Tri" && apprenti.getTemples()!=null ){
                 ArrayList<Position> positionsTri = null;
                  if(vue.nomTri.getText()==INTITULES_ALGOS[0]){
                      positionsTri = Algorithmes.triInsertion();

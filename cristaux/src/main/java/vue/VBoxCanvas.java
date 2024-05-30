@@ -43,6 +43,8 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
         bouton.setUserData("Tri");
         Button recup = new Button("Récupérer le cristal");
         recup.setUserData("recup");
+        Button restart = new Button("Réinitialiser");
+        restart.setUserData("restart");
 
 
         for ( int i=0 ; i<LARGEUR_CANVAS; i+= CARRE){
@@ -64,10 +66,12 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
 
         recup.setOnAction(controleur);
 
+        restart.setOnAction(controleur);
         HBox hbox = new HBox();
-        hbox.getChildren().addAll(recup,bouton);
+        hbox.getChildren().addAll(recup,bouton,restart);
         HBox.setMargin(recup,new Insets(10));
         HBox.setMargin(bouton,new Insets(10));
+        HBox.setMargin(restart,new Insets(10));
         this.getChildren().add(hbox);
         VBox.setMargin(bouton,new Insets(30));
 

@@ -46,6 +46,10 @@ public class Apprenti {
         return null;
     }
 
+    /**
+     * Cette méthode permet de reinitialiser les temples tels qu'ils apparaissent dans le scénario
+     * @param save dictionnaire comprenant la couleur et le cristal initiaux de chaques temples
+     */
     public static void resetTemples(HashMap save){
         for (Temple temple : temples){
             temple.setCristal((int) save.get(temple.getCouleur()));

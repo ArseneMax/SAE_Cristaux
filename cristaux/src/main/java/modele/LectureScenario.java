@@ -4,11 +4,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class LectureScenario implements ConstantesCanvas{
+    private static HashMap<Integer,Integer> templesDuScenariocopie = new HashMap<>();
+
     public static Collection<Temple> lecture(File fichierScenario){
-        Collection<Temple> templesDuScenario = new ArrayList<>();
+        Collection<Temple> templesDuScenario= new ArrayList<>();
         try{
             Scanner scanner = new Scanner(fichierScenario);
             Temple temple;
@@ -20,6 +23,7 @@ public class LectureScenario implements ConstantesCanvas{
                 temple = new Temple(new Position(posx, posy), couleur, crystal);
                 System.out.println(temple.toString());
                 templesDuScenario.add(temple);
+                templesDuScenariocopie.put(temple.getCouleur(),temple.getCristal());
             }
             scanner.close();
         }
@@ -27,5 +31,9 @@ public class LectureScenario implements ConstantesCanvas{
             System.out.println(e.getMessage());
         }
         return templesDuScenario;
+    }
+
+    public static HashMap<Integer, Integer> getTemplesDuScenario() {
+        return templesDuScenariocopie;
     }
 }

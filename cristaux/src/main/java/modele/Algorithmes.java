@@ -73,8 +73,10 @@ public class Algorithmes implements ConstantesCanvas{
                         save.put(temple.getCouleur(), temple.getCristal());
                     Temple templeCristal = Apprenti.rechercheCristal(temple.getCouleur());
                     int distance = Position.distance(temple.getPosition(),templeCristal.getPosition())+Position.distance(VBoxCanvas.getPositionApprenti(),templeCristal.getPosition());
-                    if (distanceMin>distance && !temple.bonCristal())
+                    if (distanceMin>distance && !temple.bonCristal()){
                         templeCible = temple;
+                        distanceMin=distance;
+                    }
                 }
                 listePosition.add(Apprenti.rechercheCristal(templeCible.getCouleur()).getPosition());
                 listePosition.add(templeCible.getPosition());
