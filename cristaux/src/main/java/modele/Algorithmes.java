@@ -1,11 +1,10 @@
 package modele;
 
+import javafx.scene.layout.VBox;
 import vue.VBoxCanvas;
 import vue.VBoxRoot;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
+import java.util.*;
 
 public class Algorithmes implements ConstantesCanvas{
 
@@ -104,8 +103,44 @@ public class Algorithmes implements ConstantesCanvas{
     }
 
 
-    public static ArrayList<Position> algoDjistktra(){
-        return null;
+    public static ArrayList<Position> algoDijkstra(){
+        ArrayList<Position> listePosition = new ArrayList<>();
+        PriorityQueue file = new PriorityQueue();
+        Collection<Temple> temples = VBoxRoot.getApprenti().getTemples();
+        HashMap<Integer,Integer> etatDepart = new HashMap<>();
+        TreeSet<Configuration> dejaVues = new TreeSet<>();
+        etatDepart.put(0,0);
+        for (Temple temple : temples){
+            etatDepart.put(temple.getCouleur(), temple.getCristal());
+        }
+        Configuration depart = new Configuration(new ArrayList<>(),etatDepart,0,VBoxCanvas.getPositionApprenti());
+        file.add(depart);
+        dejaVues.add(depart);
+        while (!file.isEmpty()){
+            Configuration courante = (Configuration) file.poll();
+            System.out.println(courante.getEtat());
+            for(Configuration conf : courante.accessibles()){
+                if (!dejaVues.contains(conf)){
+                    dejaVues.add(conf);
+                    file.add(conf);
+                }
+            }
+        }
+        Configuration meilleureConf = null;
+        for (Configuration conf : dejaVues){
+            if (meilleureConf==null ){
+                if ( conf.getTemplesVus().size()== VBoxRoot.getApprenti().getTemples().size()-1)
+                    meilleureConf = conf;
+
+            }
+            else if (meilleureConf.getNombreDePas()> conf.getNombreDePas()) {
+                meilleureConf=conf;
+            }
+        }
+        for (Temple temple :meilleureConf.getTemplesVus()){
+            listePosition.add(temple.getPosition());
+        }
+        return listePosition;
     }
 
 }
