@@ -1,13 +1,14 @@
 package modele;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Configuration {
     private ArrayList<Temple> templesVus;
     private int nombreDePas;
-    private ArrayList<Integer> etat;
+    private HashMap<Integer, Integer> etat;
 
-    public Configuration(ArrayList<Temple> parTemplesVus, ArrayList<Integer> parEtat, int parPas){
+    public Configuration(ArrayList<Temple> parTemplesVus, HashMap<Integer,Integer> parEtat, int parPas){
         etat = parEtat;
         templesVus = parTemplesVus;
         nombreDePas = parPas;
@@ -18,7 +19,7 @@ public class Configuration {
         return templesVus;
     }
 
-    public ArrayList<Integer> getEtat() {
+    public HashMap<Integer,Integer> getEtat() {
         return etat;
     }
 
