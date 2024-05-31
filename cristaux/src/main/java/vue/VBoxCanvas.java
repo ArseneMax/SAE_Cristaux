@@ -121,17 +121,7 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
 
 
 
-    public static void deplacement(Position parDepart,Position parFin){
-        while (parDepart.compareTo(parFin)!=0){
-            System.out.println(parDepart+" n'est pas egal à "+parFin);
-            if (parDepart.getAbscisse()!= parFin.getAbscisse()){
-                parDepart.setAbscisse(parDepart.getAbscisse()- parDepart.compareTo(parFin));
-            }
-            else{
-                parDepart.setOrdonnee(parDepart.getOrdonnee()-parDepart.compareTo(parFin));
-            }
-        }
-    }
+
 
     private void deplacementAvecTimer(Position positionCourante,Position positionCible){
         Timer timer = new Timer();

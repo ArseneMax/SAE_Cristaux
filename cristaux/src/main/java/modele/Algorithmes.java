@@ -63,7 +63,7 @@ public class Algorithmes implements ConstantesCanvas{
     }
 
 
-    public static ArrayList<Position> algoHeulerien(){
+    public static ArrayList<Position> algoHeuristique(){
         int distanceMin=5000;
         int cristalTenu=0;
         Collection<Temple> temples = VBoxRoot.getApprenti().getTemples();
@@ -94,13 +94,18 @@ public class Algorithmes implements ConstantesCanvas{
                 cristalTenu= templeCible.getCristal();
                 templeCible.setCristal(templeCible.getCouleur());
             }
+            System.out.println(cristalTenu+ " "+templeCible.getCristal());
         }
-        System.out.println(listePosition);
 
         Apprenti.resetTemples(save);
 
         return listePosition;
 
+    }
+
+
+    public static ArrayList<Position> algoDjistktra(){
+        return null;
     }
 
 }

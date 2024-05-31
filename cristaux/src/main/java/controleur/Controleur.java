@@ -66,7 +66,7 @@ public class Controleur implements EventHandler, ConstantesCanvas {
 
                 }
                  else if (vue.nomTri.getText()==INTITULES_ALGOS[3]){
-                     positionsTri = Algorithmes.algoHeulerien();
+                     positionsTri = Algorithmes.algoHeuristique();
 
                  }
 
