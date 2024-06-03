@@ -38,6 +38,8 @@ public class VBoxAffichageTable extends VBox {
 
         tableInfo.getColumns().addAll(scenarioColumn,pasColumn,triColumn,cheminColumn);
 
+        cheminColumn.setPrefWidth(300.0);
+
         this.getChildren().add(tableInfo);
         this.updateTable();
 
