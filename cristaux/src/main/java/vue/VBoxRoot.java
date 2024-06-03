@@ -54,7 +54,9 @@ public class VBoxRoot extends VBox implements ConstantesCanvas {
         HBox boxTable = new HBox();
         boxTable.getChildren().addAll(vueCanvas,vueTable);
         HBox.setMargin(vueTable,new Insets(110));
+
         this.getChildren().add(boxTable);
+
 
     }
 
@@ -64,4 +66,6 @@ public class VBoxRoot extends VBox implements ConstantesCanvas {
 
     public static VBoxCanvas getVueCanvas() {return vueCanvas;}
     public static Controleur getControleur(){ return controleur;}
+
+    public static VBoxAffichageTable getVueTable(){return vueTable;}
 }

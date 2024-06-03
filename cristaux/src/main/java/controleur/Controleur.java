@@ -23,6 +23,7 @@ public class Controleur implements EventHandler, ConstantesCanvas {
                 System.out.println(fichierScenario.getName());
                 File scenario = fichierScenario;
                 Collection<Temple>temples= LectureScenario.lecture(fichierScenario);
+                VBoxRoot.getApprenti().setScenario(scenario.getName());
                 VBoxRoot.getApprenti().setTemples(temples);
                 System.out.println(VBoxRoot.getApprenti());
             }

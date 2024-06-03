@@ -9,12 +9,22 @@ public class Apprenti {
     private Position position;
     private static Collection<Temple> temples;
     private int cristal =0;
+    String scenario;
 
     public Apprenti(){ position = new Position(0,0); }
 
     public void setTemples(Collection<Temple> parTemple ) {
         temples = parTemple;
         VBoxCanvas.placetemple(temples);
+    }
+    public void setScenario(String parScenario){
+        scenario=parScenario.replace(".txt","");
+        String numero=scenario.replace("scenario","");
+        scenario="scénario "+numero;
+    }
+
+    public String getScenario() {
+        return scenario;
     }
 
     public Collection<Temple> getTemples(){

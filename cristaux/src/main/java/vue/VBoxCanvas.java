@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import modele.Apprenti;
 import modele.Position;
+import modele.Resultat;
 import modele.Temple;
 
 import java.util.ArrayList;
@@ -176,6 +177,7 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
         int [] indice = {0};
         Timer timer = new Timer();
         Apprenti apprenti = VBoxRoot.getApprenti();
+        ArrayList<Integer> listeTemplesVus = new ArrayList<>();
 
         TimerTask timerTask = new TimerTask() {
             @Override
@@ -221,13 +223,19 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
                 //Si cible atteinte
                 if (positionCourante.compareTo(positionCible)==0){
                     temple=surTemple(positionCourante);
-                    if(temple!=null)
+                    if(temple!=null){
                         apprenti.recupCristal(temple);
+                        listeTemplesVus.add(temple.getCouleur());
+                    }
+
                     indice[0]++;
 
                 }
                 //Si fini
                 if (indice[0]>positionsCibles.size()-1){
+                    Resultat resultat= new Resultat(Position.getNbPas(),nomTri.getText(),listeTemplesVus,VBoxRoot.getApprenti().getScenario());
+                    VBoxRoot.getVueTable().getResultats().add(resultat);
+                    VBoxRoot.getVueTable().updateTable();
                     timer.cancel();
                 }
 
