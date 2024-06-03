@@ -115,32 +115,72 @@ public class Algorithmes implements ConstantesCanvas{
         }
         Configuration depart = new Configuration(new ArrayList<>(),etatDepart,0,VBoxCanvas.getPositionApprenti());
         file.add(depart);
-        dejaVues.add(depart);
         while (!file.isEmpty()){
             Configuration courante = (Configuration) file.poll();
+            dejaVues.add(courante);
             System.out.println(courante.getEtat());
             for(Configuration conf : courante.accessibles()){
-                if (!dejaVues.contains(conf)){
+                Configuration doublon = conf.trouveDoublon(dejaVues);
+                if (doublon==null){
+                    file.add(conf);
+                } else if (conf.compareTo(doublon)==-1){
+                    dejaVues.remove(doublon);
                     dejaVues.add(conf);
                     file.add(conf);
                 }
             }
         }
         Configuration meilleureConf = null;
+        System.out.println(dejaVues);
         for (Configuration conf : dejaVues){
-            if (meilleureConf==null ){
-                if ( conf.getTemplesVus().size()== VBoxRoot.getApprenti().getTemples().size()-1)
+            if ( conf.getTemplesVus().size()== VBoxRoot.getApprenti().getTemples().size()-1){
+                if (meilleureConf==null ){
                     meilleureConf = conf;
+                    System.out.println(meilleureConf);
 
+                }
+                else if (meilleureConf.getNombreDePas()> conf.getNombreDePas() ){
+                    meilleureConf = conf;
+                    System.out.println(meilleureConf);
+
+                }
             }
-            else if (meilleureConf.getNombreDePas()> conf.getNombreDePas()) {
-                meilleureConf=conf;
-            }
+
         }
         for (Temple temple :meilleureConf.getTemplesVus()){
             listePosition.add(temple.getPosition());
         }
+
         return listePosition;
     }
 
-}
+    public static ArrayList<Position> algoDijkstranul(){
+        ArrayList<Position> listePosition = new ArrayList<>();
+        PriorityQueue file = new PriorityQueue();
+        Collection<Temple> temples = VBoxRoot.getApprenti().getTemples();
+        HashMap<Integer,Integer> etatDepart = new HashMap<>();
+        etatDepart.put(0,0);
+        for (Temple temple : temples){
+            etatDepart.put(temple.getCouleur(), temple.getCristal());
+        }
+        Configuration depart = new Configuration(new ArrayList<>(),etatDepart,10,VBoxCanvas.getPositionApprenti());
+        Configuration departTest = new Configuration(new ArrayList<>(),etatDepart,3,VBoxCanvas.getPositionApprenti());
+        Configuration departTest1 = new Configuration(new ArrayList<>(),etatDepart,12,VBoxCanvas.getPositionApprenti());
+        Configuration departTest2 = new Configuration(new ArrayList<>(),etatDepart,8,VBoxCanvas.getPositionApprenti());
+
+        file.add(depart);
+        file.add(departTest);
+        file.add(departTest1);
+        file.add(departTest2);
+        Configuration courante = (Configuration) file.poll();
+        System.out.println(courante);
+        for (Configuration conf : courante.accessibles()){
+            System.out.println(conf);
+            System.out.println(conf.accessibles());
+        }
+        return listePosition;
+
+    }
+
+
+    }

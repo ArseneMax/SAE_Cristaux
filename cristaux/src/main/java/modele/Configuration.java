@@ -43,14 +43,14 @@ public class Configuration implements Comparable<Configuration> {
      */
     public int compareTo(Configuration parconf){
         if(parconf.getNombreDePas()>nombreDePas )
-            return 1;
-        else if(parconf.getNombreDePas()<nombreDePas)
             return -1;
+        else if(parconf.getNombreDePas()<nombreDePas)
+            return 1;
         return 0;
     }
 
     public boolean equals(Configuration parConf){
-        if(parConf.getTemplesVus().equals(templesVus))
+        if(parConf.getEtat().equals(etat))
             return true;
         return false;
     }
@@ -86,6 +86,14 @@ public class Configuration implements Comparable<Configuration> {
             }
         }
         return confAccessibles;
+    }
+
+    public Configuration trouveDoublon(Collection<Configuration> listeConf){
+        for (Configuration conf : listeConf){
+            if (this.equals(conf))
+                return conf;
+        }
+        return null;
     }
 
 

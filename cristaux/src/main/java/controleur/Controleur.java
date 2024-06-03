@@ -76,7 +76,7 @@ public class Controleur implements EventHandler, ConstantesCanvas {
                      if (positionsTri.size()!=0)
                         vue.deplacementAvecTimerListe(VBoxCanvas.getPositionApprenti(), positionsTri);
                     else
-                        vue.nomTri.setText("Algorithme en cours de maintennace");
+                        vue.nomTri.setText("Algorithme en cours de maintenance");
 
 
 
