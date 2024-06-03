@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import modele.Apprenti;
 import modele.ConstantesCanvas;
@@ -16,6 +17,7 @@ public class VBoxRoot extends VBox implements ConstantesCanvas {
     private static Apprenti apprenti;
     private static Controleur controleur;
     private static VBoxCanvas vueCanvas;
+    private static VBoxAffichageTable vueTable;
 
     public VBoxRoot(){
         apprenti = new Apprenti();
@@ -44,9 +46,16 @@ public class VBoxRoot extends VBox implements ConstantesCanvas {
             menuTri.getItems().add(itemTri);
         }
 
+        vueTable = new VBoxAffichageTable();
 
         vueCanvas = new VBoxCanvas();
-        this.getChildren().add(vueCanvas);
+
+
+        HBox boxTable = new HBox();
+        boxTable.getChildren().addAll(vueCanvas,vueTable);
+        HBox.setMargin(vueTable,new Insets(110));
+        this.getChildren().add(boxTable);
+
     }
 
     public static Apprenti getApprenti() {
