@@ -40,7 +40,7 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
         graphicsContext2D = canvasCarte.getGraphicsContext2D();
         graphicsContext2D.setStroke(COULEUR_GRILLE);
         controleur = VBoxRoot.getControleur();
-        Button bouton = new Button("Lancer le l'algorithme");
+        Button bouton = new Button("Lancer l'algorithme");
         bouton.setUserData("Tri");
         Button recup = new Button("Récupérer le cristal");
         recup.setUserData("recup");
