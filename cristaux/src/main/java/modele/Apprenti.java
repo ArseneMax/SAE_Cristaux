@@ -12,6 +12,7 @@ public class Apprenti {
     String scenario;
 
     public Apprenti(){ position = new Position(0,0); }
+    public Apprenti(Collection<Temple> parTemples){ position = new Position(0,0);temples=parTemples;}
 
     public void setTemples(Collection<Temple> parTemple ) {
         temples = parTemple;
@@ -46,7 +47,7 @@ public class Apprenti {
     }
 
     /**
-     * Parcours la liste des temples et vérifie si ils ont le bon cristal
+     * Parcours la liste des temples et vérifie si ils ont tous le bon cristal
      * @return true si c'est le cas sinon return false
      */
     public boolean fini(){

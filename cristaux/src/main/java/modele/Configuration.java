@@ -103,9 +103,9 @@ public class Configuration implements Comparable<Configuration> {
     }
 
     /**
-     * Regarde si une configuration est en double
+     * Regarde si une liste possède une configuration avec un état similaire à l'état de this
      * @param listeConf
-     * @return la configuration si il y en a une en double sinon return null
+     * @return la configuration doublon sinon return null
      */
     public Configuration trouveDoublon(Collection<Configuration> listeConf){
         for (Configuration conf : listeConf){
