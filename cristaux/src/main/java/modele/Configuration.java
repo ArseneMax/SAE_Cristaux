@@ -55,6 +55,11 @@ public class Configuration implements Comparable<Configuration> {
         return false;
     }
 
+    /**
+     * Renvoie une liste avec les temples vu et un autre temple
+     * @param parTemple
+     * @return liste de temples
+     */
     public ArrayList<Temple> changeTemplesVus(Temple parTemple){
         ArrayList<Temple> templesVusAutres = new ArrayList<>();
         for (Temple temple : templesVus){
@@ -64,6 +69,11 @@ public class Configuration implements Comparable<Configuration> {
         return templesVusAutres;
     }
 
+    /**
+     * Actualise l'état de la configuration
+     * @param temple qui voit son état changé
+     * @return une HashMap
+     */
     public HashMap<Integer,Integer> changeEtat(Temple temple){
         HashMap<Integer,Integer> etatChange = new HashMap<>();
         for (int i = 0 ;i<etat.size();i++){
@@ -77,6 +87,10 @@ public class Configuration implements Comparable<Configuration> {
         return etatChange;
     }
 
+    /**
+     * Méthode qui renvoie toutes les configurations accessible a partir de cette configuration
+     * @return une collection de configuration
+     */
     public Collection<Configuration> accessibles(){
         Collection<Temple> temples = VBoxRoot.getApprenti().getTemples();
         Collection<Configuration> confAccessibles = new ArrayList<>();
@@ -88,6 +102,11 @@ public class Configuration implements Comparable<Configuration> {
         return confAccessibles;
     }
 
+    /**
+     * Regarde si une configuration est en double
+     * @param listeConf
+     * @return la configuration si il y en a une en double sinon return null
+     */
     public Configuration trouveDoublon(Collection<Configuration> listeConf){
         for (Configuration conf : listeConf){
             if (this.equals(conf))

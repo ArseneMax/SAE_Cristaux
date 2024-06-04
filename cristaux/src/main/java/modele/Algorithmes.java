@@ -61,7 +61,13 @@ public class Algorithmes implements ConstantesCanvas{
         return listePosition;
     }
 
-
+    /**
+     * Algorithme qui quand l'apprenti ne tient pas de cristal va faire une boucle qui calcule la distance la plus courte
+     * pour aller prendre un cristal et le reposer sur le bon temple et va mettre la position du temple cible dans une liste.
+     * Et si l'apprenti tiens un cristal alors il va le reposer sur le bon temple et donc mettre la position su temple dans une liste.
+     *
+     * @return liste de position que l'apprenti devra parcourir
+     */
     public static ArrayList<Position> algoHeuristique(){
         int distanceMin=5000;
         int cristalTenu=0;

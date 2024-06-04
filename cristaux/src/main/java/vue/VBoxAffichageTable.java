@@ -15,7 +15,10 @@ public class VBoxAffichageTable extends VBox {
     private TableView<Resultat> tableInfo;
     private ArrayList<Resultat> resultats;
 
-
+    /**
+     * Constructeur de la table qui va écrire à la fin du lancement d'un parcours le nm du scénario, le nombre de pas,
+     * le nom de l'algorithme utilisé et les temples par lesquel l'apprenti est passé.
+     */
     public VBoxAffichageTable(){
 
 
@@ -48,6 +51,9 @@ public class VBoxAffichageTable extends VBox {
 
     }
 
+    /**
+     * update la table
+     */
     public void updateTable() {
         tableInfo.getItems().clear();
         if(resultats!=null){

@@ -59,6 +59,12 @@ public class Position {
     public void setAbscisse(int nouveau){nbPas++;this.abscisse=nouveau;}
     public void setOrdonnee(int nouveau){nbPas++;this.ordonnee=nouveau;}
 
+    /**
+     * Calcul la distance entre la position de départ et la position cible
+     * @param positionDepart
+     * @param positionCible
+     * @return une distance
+     */
     public static int distance(Position positionDepart, Position positionCible){
         return abs(positionDepart.getAbscisse()- positionCible.getAbscisse())+abs(positionDepart.getOrdonnee()- positionCible.getOrdonnee());
     }
