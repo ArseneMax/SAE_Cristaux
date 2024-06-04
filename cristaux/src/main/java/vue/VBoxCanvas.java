@@ -245,7 +245,9 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
         timer.scheduleAtFixedRate(timerTask,500,50);
     }
 
-
+    /**
+     * réinitialise le jeu en redessinant par dessus
+     */
     public static void reinitialiser() {
         Position.setNbPas(0);
         labelNbPas.setText("Nombre de pas : "+Position.getNbPas());
@@ -286,6 +288,10 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
 
     }
 
+    /**
+     *méthode qui dessine les temples
+     * @param temples
+     */
     public static void placetemple(Collection<Temple> temples){
 
         reinitialiser();
@@ -303,6 +309,10 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
         }
     }
 
+    /**
+     * méthode qui dessine un temple
+     * @param temple
+     */
     public static void placeUnTemple(Temple temple){
         graphicsContext2D.setFill(COULEURS_TEMPLES [temple.getCouleur()]);
         graphicsContext2D.fillRect(temple.getPosition().getAbscisse()*CARRE +2 , temple.getPosition().getOrdonnee()*CARRE+2, CARRE-4, CARRE-4);
@@ -314,6 +324,11 @@ public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
         }
     }
 
+    /**
+     * méthode qui vérifie si la position est la même que celle d'un temple
+     * @param pos
+     * @return
+     */
     public static Temple surTemple(Position pos){
         for (Temple temple : VBoxRoot.getApprenti().getTemples()){
             if (temple.getPosition().compareTo(pos)==0)
