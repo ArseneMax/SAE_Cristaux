@@ -7,6 +7,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.lang.Comparable;
 
+/**
+ * classe des configurations pour dijkstra
+ */
 public class Configuration implements Comparable<Configuration> {
     private Position pos;
     private ArrayList<Temple> templesVus;

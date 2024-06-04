@@ -22,6 +22,9 @@ import java.util.Collection;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Classe qui gére la vue du jeu, des boutons et ds label
+ */
 public class VBoxCanvas extends VBox  implements modele.ConstantesCanvas {
     public static Label labelNbPas;
     public Label nomTri;

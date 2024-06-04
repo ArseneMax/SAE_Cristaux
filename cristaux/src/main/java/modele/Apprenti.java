@@ -5,6 +5,9 @@ import vue.VBoxCanvas;
 import java.util.Collection;
 import java.util.HashMap;
 
+/**
+ * Classe qui va gérer notre apprenti
+ */
 public class Apprenti {
     private Position position;
     private static Collection<Temple> temples;

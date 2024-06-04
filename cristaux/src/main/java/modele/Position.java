@@ -2,6 +2,9 @@ package modele;
 
 import static java.lang.Math.abs;
 
+/**
+ * Classe qui va gérer les positions
+ */
 public class Position {
     private static int nbPas = 0;
     private int abscisse;

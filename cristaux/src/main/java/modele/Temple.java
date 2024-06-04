@@ -1,5 +1,8 @@
 package modele;
 
+/**
+ * Classe qui gére les temples
+ */
 public class Temple implements ConstantesCanvas{
     private Position position;
     private int couleur;

@@ -2,7 +2,9 @@ package modele;
 
 import java.util.ArrayList;
 
-
+/**
+ * Classe qui nous permet d'afficher les résultats dans VBoxAffichageTable
+ */
 public class Resultat {
     private int nbPas;
     private String nomAlgo;

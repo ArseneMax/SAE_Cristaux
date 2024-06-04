@@ -13,6 +13,9 @@ import modele.ConstantesCanvas;
 
 import java.io.File;
 
+/**
+ * Classe qui gère le menu des scénario et des algos et qui affiche nos vues
+ */
 public class VBoxRoot extends VBox implements ConstantesCanvas {
     private static Apprenti apprenti;
     private static Controleur controleur;

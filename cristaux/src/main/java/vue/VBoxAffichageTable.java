@@ -10,7 +10,9 @@ import modele.Resultat;
 import java.util.ArrayList;
 import java.util.TreeSet;
 
-
+/**
+ * Classe qui gére la vue de notre table
+ */
 public class VBoxAffichageTable extends VBox {
     private TableView<Resultat> tableInfo;
     private ArrayList<Resultat> resultats;

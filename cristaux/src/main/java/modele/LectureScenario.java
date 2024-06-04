@@ -7,6 +7,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * Classe qui lit les scénario
+ */
 public class LectureScenario implements ConstantesCanvas{
     private static HashMap<Integer,Integer> templesDuScenariocopie = new HashMap<>();
 

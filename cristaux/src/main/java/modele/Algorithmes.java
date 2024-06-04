@@ -6,6 +6,9 @@ import vue.VBoxRoot;
 
 import java.util.*;
 
+/**
+ * Classe qui gère tout nos algorithmes
+ */
 public class Algorithmes implements ConstantesCanvas{
 
 
@@ -107,7 +110,6 @@ public class Algorithmes implements ConstantesCanvas{
         return listePosition;
 
     }
-
 
     public static ArrayList<Position> algoDijkstra(){
         ArrayList<Position> listePosition = new ArrayList<>();
